@@ -45,6 +45,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/registro', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/registro', [AuthController::class, 'register']);
+
+    Route::get('/contrasena/olvide', [AuthController::class, 'showForgotPassword'])->name('password.request');
+    Route::post('/contrasena/olvide', [AuthController::class, 'sendResetLink'])->name('password.email');
+    Route::get('/contrasena/restablecer/{token}', [AuthController::class, 'showResetPassword'])->name('password.reset');
+    Route::post('/contrasena/restablecer', [AuthController::class, 'resetPassword'])->name('password.update');
 });
 
 Route::get('/auth/{provider}', [SocialAuthController::class, 'redirect'])->name('auth.social.redirect');
