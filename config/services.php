@@ -47,8 +47,15 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT_URI'),
     ],
 
-    // Apple e Instagram/Meta requieren paquetes adicionales de SocialiteProviders
-    // (socialiteproviders/apple y socialiteproviders/instagram) — pendiente hasta
-    // tener credenciales reales de cada consola de desarrollador.
+    // Apple requiere el paquete adicional socialiteproviders/apple — pendiente
+    // hasta tener credenciales reales del Apple Developer Program.
+    //
+    // Instagram (login de usuarios) se descartó: Meta dio de baja la Instagram
+    // Basic Display API en diciembre de 2024, y el login actual
+    // ("Instagram API with Instagram Login") solo funciona con cuentas
+    // Business/Creator, no con cuentas personales — inviable para un sitio
+    // público de resultados de lotería. Facebook Login ya cubre la identidad
+    // de Meta. El campo social_instagram_url (link al perfil de Instagram del
+    // sitio en el footer/admin) es independiente de esto y se mantiene.
 
 ];
