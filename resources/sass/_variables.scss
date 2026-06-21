@@ -1,0 +1,18 @@
+// Paleta "energía colombiana" — ver PROMPT_CLAUDE_CODE_MALAYASEAMISUERTE.md > DISEÑO VISUAL
+$primary: #C8102E; // Rojo colombiano
+$success: #007847; // Verde esmeralda
+$warning: #FFD700; // Amarillo fuerte — usar solo como acento/badge, nunca como texto sobre blanco (falla 4.5:1)
+$danger: #C8102E;
+$dark: #1A1A2E; // Fondo oscuro del header
+$light: #F8F9FA; // Fondo claro del cuerpo
+
+$font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+$headings-font-family: 'Oswald', sans-serif;
+$headings-font-weight: 700;
+
+$body-bg: $light;
+$min-contrast-ratio: 4.5;
+
+// Tamaño base de texto: nunca menor a 14px, mínimo general 16px
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;

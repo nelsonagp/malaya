@@ -1,0 +1,202 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Lottery;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class LotterySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $lotteries = [
+            [
+                'name' => 'Lotería de Bogotá',
+                'slug' => 'loteria-bogota',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'results_url' => 'https://www.loteriadebogota.com/resultados/',
+                'scraper_class' => 'LoteriaBogotaScraper',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['saturday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería de Medellín',
+                'slug' => 'loteria-medellin',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'results_url' => 'https://loteriademedellin.com.co/resultados/',
+                'scraper_class' => 'LoteriaMedellinScraper',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['friday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería del Cauca',
+                'slug' => 'loteria-cauca',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['monday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería de Manizales',
+                'slug' => 'loteria-manizales',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['wednesday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería del Huila',
+                'slug' => 'loteria-huila',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['thursday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería del Tolima',
+                'slug' => 'loteria-tolima',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['monday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería de Cundinamarca',
+                'slug' => 'loteria-cundinamarca',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['monday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Lotería del Meta',
+                'slug' => 'loteria-meta',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['friday'], 'time' => '22:30', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Cruz Roja Colombiana',
+                'slug' => 'cruz-roja',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'results_url' => 'https://lotecruz.org.co/resultados/',
+                'scraper_class' => 'CruzRojaScraper',
+                'scrape_error' => null,
+                'draw_frequency' => 'weekly',
+                'draw_schedule' => ['days' => ['tuesday'], 'time' => '22:55', 'timezone' => 'America/Bogota'],
+                'has_series' => true,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Baloto',
+                'slug' => 'baloto',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'results_url' => 'https://www.baloto.com/resultados',
+                'scraper_class' => 'BalotoScraper',
+                'draw_frequency' => 'biweekly',
+                'draw_schedule' => ['days' => ['wednesday', 'saturday'], 'time' => '23:00', 'timezone' => 'America/Bogota'],
+                'has_series' => false,
+                'number_count' => 5,
+                'number_range_min' => 1,
+                'number_range_max' => 43,
+            ],
+            [
+                'name' => 'Revancha Baloto',
+                'slug' => 'revancha-baloto',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'results_url' => 'https://www.baloto.com/resultados',
+                'scraper_class' => 'BalotoScraper',
+                'draw_frequency' => 'biweekly',
+                'draw_schedule' => ['days' => ['wednesday', 'saturday'], 'time' => '23:00', 'timezone' => 'America/Bogota'],
+                'has_series' => false,
+                'number_count' => 5,
+                'number_range_min' => 1,
+                'number_range_max' => 43,
+            ],
+            [
+                'name' => 'Chance',
+                'slug' => 'chance',
+                'country' => 'Colombia',
+                'country_code' => 'CO',
+                'draw_frequency' => 'daily',
+                'draw_schedule' => ['days' => ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'], 'time' => '21:30', 'timezone' => 'America/Bogota'],
+                'has_series' => false,
+                'number_count' => 4,
+            ],
+            [
+                'name' => 'Mega Millions',
+                'slug' => 'mega-millions',
+                'country' => 'Estados Unidos',
+                'country_code' => 'US',
+                'results_url' => 'https://www.megamillions.com/winning-numbers/',
+                'scraper_class' => 'MegaMillionsScraper',
+                'scrape_error' => 'megamillions.com bloqueó la conexión (TLS reset) al verificarlo — posible protección anti-bot. Configurar scraper_config con selectores reales una vez se confirme acceso.',
+                'draw_frequency' => 'biweekly',
+                'draw_schedule' => ['days' => ['tuesday', 'friday'], 'time' => '23:00', 'timezone' => 'America/New_York'],
+                'has_series' => false,
+                'number_count' => 5,
+                'number_range_min' => 1,
+                'number_range_max' => 70,
+            ],
+            [
+                'name' => 'Powerball',
+                'slug' => 'powerball',
+                'country' => 'Estados Unidos',
+                'country_code' => 'US',
+                'results_url' => 'https://www.powerball.com/',
+                'scraper_class' => 'PowerballScraper',
+                'draw_frequency' => 'biweekly',
+                'draw_schedule' => ['days' => ['monday', 'wednesday', 'saturday'], 'time' => '23:00', 'timezone' => 'America/New_York'],
+                'has_series' => false,
+                'number_count' => 5,
+                'number_range_min' => 1,
+                'number_range_max' => 69,
+            ],
+            [
+                'name' => 'EuroMillones',
+                'slug' => 'euromillones',
+                'country' => 'Europa',
+                'country_code' => 'EU',
+                'draw_frequency' => 'biweekly',
+                'draw_schedule' => ['days' => ['tuesday', 'friday'], 'time' => '21:00', 'timezone' => 'Europe/Madrid'],
+                'has_series' => false,
+                'number_count' => 5,
+                'number_range_min' => 1,
+                'number_range_max' => 50,
+            ],
+        ];
+
+        foreach ($lotteries as $index => $lottery) {
+            Lottery::query()->updateOrCreate(
+                ['slug' => $lottery['slug']],
+                array_merge(['display_order' => $index], $lottery)
+            );
+        }
+    }
+}
