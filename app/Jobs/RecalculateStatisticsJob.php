@@ -24,7 +24,7 @@ class RecalculateStatisticsJob implements ShouldQueue
                 $stat->update([
                     'appearance_frequency' => round($stat->total_appearances / $totalDraws, 4),
                     'days_since_last_appearance' => $stat->last_appeared_date
-                        ? $stat->last_appeared_date->diffInDays(now())
+                        ? (int) $stat->last_appeared_date->diffInDays(now())
                         : null,
                     'updated_at' => now(),
                 ]);
