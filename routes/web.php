@@ -56,6 +56,14 @@ Route::get('/ad/clic/{banner}', [AdClickController::class, 'click'])->name('ad.c
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('/correo/verificar', [AuthController::class, 'showVerifyNotice'])->name('verification.notice');
+    Route::get('/correo/verificar/{id}/{hash}', [AuthController::class, 'verifyEmail'])
+        ->middleware(['signed', 'throttle:6,1'])
+        ->name('verification.verify');
+    Route::post('/correo/reenviar', [AuthController::class, 'resendVerificationEmail'])
+        ->middleware('throttle:6,1')
+        ->name('verification.send');
+
     Route::get('/perfil', [ProfileController::class, 'show'])->name('perfil');
     Route::get('/perfil/cuentas', [ProfileController::class, 'accounts'])->name('perfil.cuentas');
     Route::post('/perfil/cuentas/{provider}/desvincular', [ProfileController::class, 'unlink'])->name('perfil.cuentas.desvincular');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,8 +56,9 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
+        $user->sendEmailVerificationNotification();
 
-        return redirect()->route('home');
+        return redirect()->route('verification.notice');
     }
 
     public function logout(Request $request): RedirectResponse
@@ -67,5 +69,32 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
+    }
+
+    public function showVerifyNotice(): View|RedirectResponse
+    {
+        if (Auth::user()->hasVerifiedEmail()) {
+            return redirect()->route('home');
+        }
+
+        return view('auth.verify-email');
+    }
+
+    public function verifyEmail(EmailVerificationRequest $request): RedirectResponse
+    {
+        $request->fulfill();
+
+        return redirect()->route('home')->with('status', 'Tu correo electrónico fue verificado correctamente.');
+    }
+
+    public function resendVerificationEmail(Request $request): RedirectResponse
+    {
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->route('home');
+        }
+
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('status', 'Te enviamos un nuevo enlace de verificación a tu correo.');
     }
 }
