@@ -3,7 +3,8 @@
 @section('title', ($banner->exists ? 'Editar' : 'Crear') . ' banner | ' . config('app.name'))
 
 @section('content')
-    <h1 class="h3 mb-4">{{ $banner->exists ? 'Editar banner' : 'Crear banner' }}</h1>
+    <h1 class="h3 mb-2">{{ $banner->exists ? 'Editar banner' : 'Crear banner' }}</h1>
+    <p class="text-muted mb-4">Dónde aparece el banner (posición), su imagen y texto alternativo, a dónde enlaza al hacer clic, y durante qué fechas está vigente. Fuera de ese rango de fechas, o si "Banner activo" está desmarcado, esta posición vuelve a mostrar AdSense o el espacio reservado.</p>
 
     <form method="POST" action="{{ $banner->exists ? route('admin.publicidad.update', $banner) : route('admin.publicidad.store') }}" enctype="multipart/form-data" novalidate>
         @csrf

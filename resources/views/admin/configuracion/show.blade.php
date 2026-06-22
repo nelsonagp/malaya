@@ -3,7 +3,8 @@
 @section('title', 'Configuración | ' . config('app.name'))
 
 @section('content')
-    <h1 class="h3 mb-4">Configuración</h1>
+    <h1 class="h3 mb-2">Configuración</h1>
+    <p class="text-muted mb-4">Ajustes globales del sitio que no pertenecen a una lotería o banner en particular: monetización, redes sociales, SEO, y la creación de nuevos usuarios administradores.</p>
 
     <form method="POST" action="{{ route('admin.configuracion.update') }}" novalidate>
         @csrf
@@ -11,6 +12,7 @@
 
         <section aria-labelledby="adsense-heading" class="mb-5">
             <h2 id="adsense-heading" class="h5">Google AdSense</h2>
+            <p class="text-muted small">Se usa como respaldo en las posiciones de anuncios que no tengan un banner propio activo (ver sección "Publicidad"). El Client ID se obtiene en tu cuenta de Google AdSense.</p>
             <div class="row g-3">
                 <div class="col-12 col-md-6">
                     <label for="adsense_client_id" class="form-label">Client ID</label>
@@ -30,6 +32,7 @@
 
         <section aria-labelledby="redes-heading" class="mb-5">
             <h2 id="redes-heading" class="h5">Redes sociales del sitio</h2>
+            <p class="text-muted small">Enlaces a los perfiles del sitio (no de login social) que se muestran en el footer público. Deja en blanco la red que no exista todavía.</p>
             <div class="row g-3">
                 @foreach (['social_facebook_url' => 'Facebook', 'social_twitter_url' => 'Twitter / X', 'social_instagram_url' => 'Instagram', 'social_youtube_url' => 'YouTube'] as $key => $label)
                     <div class="col-12 col-md-6">
@@ -43,6 +46,7 @@
 
         <section aria-labelledby="seo-heading" class="mb-5">
             <h2 id="seo-heading" class="h5">SEO global</h2>
+            <p class="text-muted small">Valores usados en páginas que no definen su propia meta description, más los IDs de verificación para Google Analytics 4 y Search Console.</p>
             <div class="row g-3">
                 <div class="col-12">
                     <label for="seo_meta_description_default" class="form-label">Meta description por defecto</label>
@@ -67,6 +71,7 @@
 
     <section aria-labelledby="crear-admin-heading">
         <h2 id="crear-admin-heading" class="h5">Crear usuario administrador</h2>
+        <p class="text-muted small">Crea una cuenta con acceso completo a este panel (rol "admin"). Úsalo para dar acceso a otra persona del equipo — no es necesario para usuarios normales del sitio, que se registran desde la página pública.</p>
         <form method="POST" action="{{ route('admin.configuracion.usuarios.store') }}" class="row g-3" novalidate>
             @csrf
             <div class="col-12 col-md-4">

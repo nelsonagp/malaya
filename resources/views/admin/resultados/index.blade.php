@@ -3,10 +3,11 @@
 @section('title', 'Gestión de resultados | ' . config('app.name'))
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h3 mb-0">Resultados</h1>
         <a href="{{ route('admin.resultados.create') }}" class="btn btn-primary">Cargar resultado manual</a>
     </div>
+    <p class="text-muted mb-4">Resultados de sorteos guardados, ya sea por scraping automático o cargados a mano. Usa "Cargar resultado manual" para loterías sin scraper (Chance, EuroMillones, Lotería de Cundinamarca) o para corregir/completar un dato cuando el scraper de una lotería falle.</p>
 
     <form method="GET" class="row g-2 mb-4" aria-label="Filtros de resultados">
         <div class="col-12 col-md-4">

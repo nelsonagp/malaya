@@ -3,10 +3,11 @@
 @section('title', 'Gestión de loterías | ' . config('app.name'))
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h3 mb-0">Loterías</h1>
         <a href="{{ route('admin.loterias.create') }}" class="btn btn-primary">Crear nueva lotería</a>
     </div>
+    <p class="text-muted mb-4">Catálogo de loterías del sitio: cuáles están activas (visibles al público), su frecuencia de sorteo y el estado de su scraping automático. Edita una lotería para asignarle un scraper, cambiar su horario de sorteo o desactivarla temporalmente.</p>
 
     <div class="table-responsive">
         <table class="table table-striped align-middle">

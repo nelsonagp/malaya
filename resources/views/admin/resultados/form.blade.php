@@ -3,7 +3,8 @@
 @section('title', ($result->exists ? 'Editar' : 'Cargar') . ' resultado | ' . config('app.name'))
 
 @section('content')
-    <h1 class="h3 mb-4">{{ $result->exists ? 'Editar resultado' : 'Cargar resultado manual' }}</h1>
+    <h1 class="h3 mb-2">{{ $result->exists ? 'Editar resultado' : 'Cargar resultado manual' }}</h1>
+    <p class="text-muted mb-4">El resultado de un sorteo específico: fecha, número(s) ganador(es) y, opcionalmente, premio mayor y desglose de premios. Esto es lo que se muestra en la página pública de la lotería y alimenta las estadísticas de frecuencia de números.</p>
 
     <form method="POST" action="{{ $result->exists ? route('admin.resultados.update', $result) : route('admin.resultados.store') }}" novalidate>
         @csrf

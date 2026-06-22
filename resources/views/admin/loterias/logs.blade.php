@@ -3,7 +3,8 @@
 @section('title', 'Logs de scraping — ' . $lottery->name . ' | ' . config('app.name'))
 
 @section('content')
-    <h1 class="h3 mb-4">Logs de scraping — {{ $lottery->name }}</h1>
+    <h1 class="h3 mb-2">Logs de scraping — {{ $lottery->name }}</h1>
+    <p class="text-muted mb-4">Historial de los últimos 50 intentos de scraping automático de esta lotería (los disparados por el scheduler o por el botón "Forzar scraping ahora"). Solo lectura — útil para diagnosticar por qué un scraper está fallando, revisando la columna "Error".</p>
 
     <div class="table-responsive">
         <table class="table table-striped align-middle">

@@ -3,11 +3,11 @@
 @section('title', 'Publicidad | ' . config('app.name'))
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <h1 class="h3 mb-0">Publicidad</h1>
         <a href="{{ route('admin.publicidad.create') }}" class="btn btn-primary">Crear banner</a>
     </div>
-
+    <p class="text-muted mb-2">Banners de anunciantes que se muestran en el sitio público, por posición (header, sidebar, hero de inicio, footer). Si una posición no tiene un banner activo, se muestra el anuncio de AdSense de esa posición o, si tampoco hay AdSense configurado, un espacio reservado.</p>
     <p class="text-muted">El ID de cliente de Google AdSense se configura en <a href="{{ route('admin.configuracion.show') }}">Configuración</a>.</p>
 
     <div class="table-responsive">

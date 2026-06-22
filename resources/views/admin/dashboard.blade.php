@@ -3,6 +3,7 @@
 @section('content')
     <h1 class="mb-4">Panel de administración</h1>
     <p class="text-muted">Bienvenido, {{ auth()->user()->name }}.</p>
+    <p class="text-muted mb-4">Resumen general del sitio: cuántas loterías hay activas, cuántos resultados y usuarios hay registrados, y el estado del último intento de scraping de cada lotería. No se configura nada aquí — es solo un vistazo rápido del estado del sistema.</p>
 
     <div class="row g-3 mb-5">
         <div class="col-12 col-sm-6 col-lg-3">

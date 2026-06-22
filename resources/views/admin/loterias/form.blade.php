@@ -11,7 +11,8 @@
 @endphp
 
 @section('content')
-    <h1 class="h3 mb-4">{{ $lottery->exists ? 'Editar lotería' : 'Crear nueva lotería' }}</h1>
+    <h1 class="h3 mb-2">{{ $lottery->exists ? 'Editar lotería' : 'Crear nueva lotería' }}</h1>
+    <p class="text-muted mb-4">A la izquierda: datos generales que se muestran en el sitio público (nombre, país, logo, URLs). A la derecha: configuración técnica del scraping automático y del formato de los números del sorteo.</p>
 
     <form method="POST" action="{{ $lottery->exists ? route('admin.loterias.update', $lottery) : route('admin.loterias.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
@@ -83,7 +84,7 @@
                             <option value="{{ $scraperKey }}" @selected(old('scraper_class', $lottery->scraper_class) === $scraperKey)>{{ $scraperKey }}</option>
                         @endforeach
                     </select>
-                    <div class="form-text">El módulo de scraping aún no está construido — esta lista se llenará en config/scrapers.php.</div>
+                    <div class="form-text">Lista tomada de config/scrapers.php. Sin un scraper asignado, esta lotería solo puede actualizarse cargando resultados manuales en la sección "Resultados".</div>
                 </div>
 
                 <div class="mb-3">
